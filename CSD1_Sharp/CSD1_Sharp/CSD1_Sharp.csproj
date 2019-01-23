@@ -47,7 +47,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Q2_Patterns.cs" />
+    <Compile Include="Q2_GenericAndDefaults.cs" />
     <Compile Include="Q1_Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
