@@ -48,6 +48,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Q2_GenericAndDefaults.cs" />
+    <Compile Include="Q4_Exception.cs" />
+    <Compile Include="Q3_ParamsNRef.cs" />
     <Compile Include="Q1_Strings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
