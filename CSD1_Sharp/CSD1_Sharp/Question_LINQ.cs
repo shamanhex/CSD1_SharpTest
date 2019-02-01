@@ -21,6 +21,7 @@ namespace CSharpExam
             numbers.Remove(2);
         }
 
+        //Что такое Linq
         [TestMethod]
         public void Answer1()
         {
@@ -28,6 +29,7 @@ namespace CSharpExam
             CollectionAssert.AreEqual(new []{ 0, 2, 4 }, odd_numbers2.ToList());
         }
 
+        //Тест отложенного вызова
         [TestMethod]
         public void Answer2()
         {
@@ -35,13 +37,14 @@ namespace CSharpExam
             CollectionAssert.AreEqual(new []{ 0, 2, 4 }, odd_numbers2.ToList());
         }
 
+        //Тест отложенного вызова (неявный)
         [TestMethod]
         public void Answer3()
         {
             CollectionAssert.AreEqual(new []{ 0, 2, 4 }, odd_numbers1.ToList());
             CollectionAssert.AreEqual(new []{ 0, 4 }, odd_numbers2.ToList());
         }
-
+        
         [TestMethod]
         public void Answer4()
         {
