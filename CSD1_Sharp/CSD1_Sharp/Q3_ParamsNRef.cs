@@ -12,7 +12,7 @@ namespace CSD1_Sharp
     {
         void F1(int x)
         {
-            x += 10;
+            x = 10;
         }
 
         [Test]
@@ -25,7 +25,7 @@ namespace CSD1_Sharp
 
         void F2(ref int x)
         {
-            x += 10;
+            x = 10;
         }
 
         [Test]
@@ -48,7 +48,8 @@ namespace CSD1_Sharp
             F3(out x);
             Assert.AreEqual(20, x);
         }
-
+    
+        //Добавить массив с изменением ячейки внутри метода
         int F4(params int[] x)
         {
             return x.Sum();
