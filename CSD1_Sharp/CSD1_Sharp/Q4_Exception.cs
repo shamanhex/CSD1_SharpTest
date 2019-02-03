@@ -10,7 +10,7 @@ namespace CSD1_Sharp
     [TestFixture]
     public class Q4_Exception
     {
-        void Devide(int x)
+        void F1(int x)
         {
             x += 10;
         }

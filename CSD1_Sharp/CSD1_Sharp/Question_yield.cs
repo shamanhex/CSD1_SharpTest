@@ -1,11 +1,11 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 
 namespace CSharpExam
 {
-    [TestClass]
+    [TestFixture]
     public class Question_yield
     {
         List<string> checkpoints1, checkpoints2;
@@ -19,7 +19,7 @@ namespace CSharpExam
             checkpoints.Add("C");
         }
 
-        [TestInitialize]
+        [SetUp]
         public void TestInit()
         {
             checkpoints1 = new List<string>();
@@ -31,28 +31,28 @@ namespace CSharpExam
         }
 
 
-        [TestMethod]
+        [Test]
         public void Answer1()
         {
             CollectionAssert.AreEqual(new[] { "A", "fizz", "B", "buzz", "C" }, checkpoints1);
             CollectionAssert.AreEqual(checkpoints1, checkpoints2);
         }
 
-        [TestMethod]
+        [Test]
         public void Answer2()
         {
             CollectionAssert.AreEqual(new[] { "A", "B", "C", "fizz", "buzz" }, checkpoints1);
             CollectionAssert.AreEqual(checkpoints1, checkpoints2);
         }
 
-        [TestMethod]
+        [Test]
         public void Answer3()
         {
             CollectionAssert.AreEqual(new[] { "A", "fizz", "B", "buzz", "C" }, checkpoints1);
             CollectionAssert.AreNotEqual(checkpoints1, checkpoints2);
         }
 
-        [TestMethod]
+        [Test]
         public void Answer4()
         {
             CollectionAssert.AreEqual(new[] { "A", "B", "C", "fizz", "buzz" }, checkpoints1);

@@ -1,55 +1,56 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
+using NUnit.Framework;
 
 namespace CSharpExam
 {
-    [TestClass]
+    [TestFixture]
     public class Question_LINQ
     {
-        IEnumerable<int> odd_numbers1, odd_numbers2;
+        List<int> numbers;
+        IEnumerable<int> odd_numbers1;
 
-        [TestInitialize]
+        [SetUp]
         public void TestInit()
         {
-            List<int> numbers = new List<int>() { 0, 1, 2, 3, 4 };
+            numbers = new List<int>() { 0, 1, 2, 3, 4 };
 
             odd_numbers1 = from n in numbers
                            where n % 2 == 0
                            select n;
-            odd_numbers2 = odd_numbers1.ToList();
+        }
+
+        [Test]
+        public void Test1()
+        {
+            CollectionAssert.AreEqual(new []{ 0, 2, 4 }, odd_numbers1.ToList());
+        }
+
+        [Test]
+        public void Test2()
+        {
             numbers.Remove(2);
-        }
-
-        //Что такое Linq
-        [TestMethod]
-        public void Answer1()
-        {
             CollectionAssert.AreEqual(new []{ 0, 2, 4 }, odd_numbers1.ToList());
-            CollectionAssert.AreEqual(new []{ 0, 2, 4 }, odd_numbers2.ToList());
         }
 
-        //Тест отложенного вызова
-        [TestMethod]
-        public void Answer2()
+        [Test]
+        public void Test3()
         {
+            IEnumerable<int> odd_numbers2 = odd_numbers1.Where(n => n > 0);
+            numbers.Remove(2);
+
             CollectionAssert.AreEqual(new []{ 0, 4 }, odd_numbers1.ToList());
-            CollectionAssert.AreEqual(new []{ 0, 2, 4 }, odd_numbers2.ToList());
-        }
-
-        //Тест отложенного вызова (неявный)
-        [TestMethod]
-        public void Answer3()
-        {
-            CollectionAssert.AreEqual(new []{ 0, 2, 4 }, odd_numbers1.ToList());
-            CollectionAssert.AreEqual(new []{ 0, 4 }, odd_numbers2.ToList());
+            CollectionAssert.AreEqual(new []{ 2, 4 }, odd_numbers2.ToList());
         }
         
-        [TestMethod]
-        public void Answer4()
+        [Test]
+        public void Test4()
         {
-            CollectionAssert.AreEqual(new []{ 0, 4 }, odd_numbers1.ToList());
-            CollectionAssert.AreEqual(new []{ 0, 4 }, odd_numbers2.ToList());
+            IEnumerable<int> odd_numbers2 = odd_numbers1.Where(n => n > 0).ToList();
+            numbers.Remove(2);
+
+            CollectionAssert.AreEqual(new[] { 0, 4 }, odd_numbers1.ToList());
+            CollectionAssert.AreEqual(new[] { 2, 4 }, odd_numbers2.ToList());
         }
 
     }
